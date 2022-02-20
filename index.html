@@ -80,16 +80,17 @@
             //alert(s1)
             s1 = stsort(s1);
             s2 = stsort(s2);
-            if(s1.length+s2.length==9){
-                alert("No Winner")
-                playagain();
-            }
+            
             if (searchh(s1, "123") || searchh(s1, "456") || searchh(s1, "789") || searchh(s1, "147") || searchh(s1, "258") || searchh(s1, "369") || searchh(s1, "159") || searchh(s1, "357")) {
                 alert("Player 1 wins")
                 playagain();
             }
             if (searchh(s2, "123") || searchh(s2, "456") || searchh(s2, "789") || searchh(s2, "147") || searchh(s2, "258") || searchh(s2, "369") || searchh(s2, "159") || searchh(s2, "357")) {
                 alert("Player 2 wins")
+                playagain();
+            }
+            if(s1.length+s2.length==9){
+                alert("No Winner")
                 playagain();
             }
             c++;
