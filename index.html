@@ -1,0 +1,191 @@
+<html lang="en">
+<style>
+    .upgrade {
+        display: none;
+    }
+    .xdy{
+        position: absolute;
+        top:24%;
+        left: 41%;
+        /* transform: translate(20%,20%) */
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TICTACTOE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Gamecode -->
+    <script>
+        function playagain(){
+            document.getElementById("popup").style.display="block";
+        }
+        function searchh(str, chk) {
+
+            for (k = 0; k < 3; k++) {
+                pos = str.search(chk[k]);
+                if (pos == -1)
+                    return false;
+            }
+            return true;
+        }
+        function stsort(s) {
+            // alert("hi"
+            var a = s.split('');
+            for (x = 0; x < a.length - 1; x++)
+                for (y = 0; y < a.length - x - 1; y++)
+                    if (a[y] > a[y + 1]) {//alert("hi")
+                        temp = a[y];
+                        a[y] = a[y + 1];
+                        a[y + 1] = temp;
+                    }
+            //alert(a.join(''))                
+            return a.join('');
+        }
+
+        var c = 0; var i = 0; x = 0; s1 = "", s2 = "";
+        arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        function func(ch, b) {
+            //alert("clicked")
+            if (i == 0) {
+                arr[i] = ch;
+                //alert(arr[i])
+                i++;
+            }
+            else {
+                for (j = 0; j < 8; j++) {
+                    if (arr[j] == ch) {
+                        //alert("hehe")
+                        return;
+                    }
+                }
+
+                arr[i] = ch;
+                i++;
+            }
+
+            if (c % 2 == 0) {
+                s1 = s1 + ch;
+                document.getElementById(b + 'x').style.display = "block";
+            }
+            else {
+                s2 = s2 + ch;
+                document.getElementById(b + 'o').style.display = "block";
+            }
+            //alert(s1)
+            s1 = stsort(s1);
+            s2 = stsort(s2);
+            if (searchh(s1, "123") || searchh(s1, "456") || searchh(s1, "789") || searchh(s1, "147") || searchh(s1, "258") || searchh(s1, "369") || searchh(s1, "159") || searchh(s1, "357")) {
+                alert("Player 1 wins")
+                playagain();
+            }
+            if (searchh(s2, "123") || searchh(s2, "456") || searchh(s2, "789") || searchh(s2, "147") || searchh(s2, "258") || searchh(s2, "369") || searchh(s2, "159") || searchh(s2, "357")) {
+                alert("Player 2 wins")
+                playagain();
+            }
+            c++;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- nav bar -->
+
+    <nav class="h-20 bg-blue-800">
+        <div class="text-center text-4xl text-white py-4 font-serif">
+            <h">TIC-TAC-TOE</h>
+        </div>
+    </nav>
+
+    <!-- main game -->
+
+    <main>
+        <div class="">
+        <div class="justify-center items-center">
+            <div class="bg-blue-200 py-20 text-center">
+                <!-- grid -->
+
+                <div class="flex justify-center">
+                    <div>
+                        <div onclick="func(1,'b1')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b1x">X</div>
+                            <div class="upgrade O" id="b1o">O</div>
+                        </div>
+
+                        <div onclick="func(2,'b2')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b2x">X</div>
+                            <div class="upgrade O" id="b2o">O</div>
+                        </div>
+
+                        <div onclick="func(3,'b3')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b3x">X</div>
+                            <div class="upgrade O" id="b3o">O</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div onclick="func(4,'b4')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b4x">X</div>
+                            <div class="upgrade O" id="b4o">O</div>
+                        </div>
+
+                        <div onclick="func(5,'b5')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b5x">X</div>
+                            <div class="upgrade O" id="b5o">O</div>
+                        </div>
+
+                        <div onclick="func(6,'b6')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade" id="b6x">X</div>
+                            <div class="upgrade" id="b6o">O</div>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <div onclick="func(7,'b7')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b7x">X</div>
+                            <div class="upgrade O" id="b7o">O</div>
+                        </div>
+
+                        <div onclick="func(8,'b8')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b8x">X</div>
+                            <div class="upgrade O" id="b8o">O</div>
+                        </div>
+                        <div onclick="func(9,'b9')"
+                            class="cursor-pointer bg-slate-500 h-20 w-20 border-blue-200 border py-7 text-2xl">
+                            <div class="upgrade X" id="b9x">X</div>
+                            <div class="upgrade O" id="b9o">O</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upgrade" id="popup">
+            <div class="xdy bg-blue-300 flex justify-center items-center border-2 border-black">
+                <div class="h-60 w-72 text-center py-16">
+                    <p class="py-2">
+                        Click the button to play again
+                    </p>
+                    <button onclick="window.location.reload()"
+                        class="hover:border-black border-2 border-blue-700 bg-blue-700 text-white rounded px-4 py-1 hover:text-black hover:bg-white"
+                        id="but">PLAY AGAIN</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </main>
+</body>
+
+</html>
