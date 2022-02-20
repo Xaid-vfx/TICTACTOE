@@ -84,10 +84,12 @@
             if (searchh(s1, "123") || searchh(s1, "456") || searchh(s1, "789") || searchh(s1, "147") || searchh(s1, "258") || searchh(s1, "369") || searchh(s1, "159") || searchh(s1, "357")) {
                 alert("Player 1 wins")
                 playagain();
+                return;
             }
             if (searchh(s2, "123") || searchh(s2, "456") || searchh(s2, "789") || searchh(s2, "147") || searchh(s2, "258") || searchh(s2, "369") || searchh(s2, "159") || searchh(s2, "357")) {
                 alert("Player 2 wins")
                 playagain();
+                return;
             }
             if(s1.length+s2.length==9){
                 alert("No Winner")
