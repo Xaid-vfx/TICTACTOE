@@ -5,8 +5,8 @@
     }
     .xdy{
         position: absolute;
-        top:24%;
-        left: 41%;
+        top:50%;
+        left:50%;
         /* transform: translate(20%,20%) */
     }
 </style>
@@ -22,6 +22,7 @@
     <script>
         function playagain(){
             document.getElementById("popup").style.display="block";
+            document.getElementById("ttt").style.display="none";
         }
         function searchh(str, chk) {
 
@@ -104,12 +105,11 @@
     <!-- main game -->
 
     <main>
-        <div class="">
+        <div id="ttt"class="">
         <div class="justify-center items-center">
             <div class="bg-blue-200 py-20 text-center">
                                                       <p>Player1 - X</p>    <p>Player2- O </p>
                 <!-- grid -->
-
                 <div class="flex justify-center py-5">
                     <div>
                         <div onclick="func(1,'b1')"
